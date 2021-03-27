@@ -136,7 +136,7 @@ void setup_timer4()
 void TC4_Handler()
 {
   // check for overflow (OVF) interrupt
-  if (TC4->COUNT16.INTFLAG.bit.OVF && TC4->COUNT16.INTENSET.bit.OVF)
+  if (TC4->COUNT8.INTFLAG.bit.OVF && TC4->COUNT8.INTENSET.bit.OVF)
   {
     // this is our delay counter
     if(ISR_DelayCounter != 0) {
