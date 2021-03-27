@@ -22,7 +22,7 @@ This is the LT with the laser installed, and the test setup used for this tutori
 
 Here is the code for the MKR1010.  This is a subset of the code for my LT, it has been modified a bit for this tutorial.
 
-[Arduino Code](/T004_LaserTankTimerinterrupt.ino)
+[Arduino Code](/T004_LaserTankTimerInterrupt.ino)
 
 - Pin Assignments
     - Assign the pins we are using to show the different timing intervals created in the Interrupt Service Routine (ISR).
@@ -85,6 +85,9 @@ Here is the code for the MKR1010.  This is a subset of the code for my LT, it ha
     volatile int ISR_Yellow = 0;            // counter used to toggle the yellow led in the background 5 seconds
     volatile int ISR_Red = 0;               // counter used to toggle the red led in the background every 10 seconds
 ```
+
+![MRK1010 Block Diagram](/Images/MRK1010BD.JPG)
+
 - Setup Timer 4 to trigger the TC4_Handler() ISR routine
     - Setup timer 4 to count 50uSec interrupts - Select Generic Clock (GCLK) 4, set it to 50/50 duty cycle, connect GCLK to Timer Counter 4 (TC4), Set it to 8 bit mode since we only need to count 150 (less the 255 max count for 8 bits), set the predetermined count to 150 to get the 50 uSec period, set it to the highest priority, connect TC4 to Nested Vector Interrupt Controller, set the pre-scalar to 16 to get 3 MHz and finally enable the counter.
 ```sh 
